@@ -12,11 +12,12 @@ with open('/app/config.json','r') as fjson:
 
 for host in range(0, len(data['conn']['host'])):
     ssh.conn(data['conn']['host'][host],data['conn']['user'],data['conn']['passwd'])
-    ###### Procedimentos a serem executados no servidor remoto ######
+
+###### Procedimentos a serem executados no servidor remoto ######
     output = ssh.exec_cmd("ls -l;hostname;date")
     for i in output:
         print(i.rstrip('\n'))
-    ###### Fim dos procedimentos no servidor remoto ######
+###### Fim dos procedimentos no servidor remoto ######
 
 # Para executar este script no container utilize o seguinte comando:
 #
